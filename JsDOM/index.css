@@ -1,0 +1,50 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+header nav{
+ width: 100%;
+ background-color: blueviolet;
+ padding: 5px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: white;
+}
+.inputSection{
+    width: 30%;
+    margin: auto;
+    margin-top: 20px;
+}
+.inputSection input{
+    width: 85%;
+    font-size: 14px;
+    padding: 5px;
+    outline: none;
+    border-radius: 5px;
+}
+.inputSection button,#allItems div button{
+    background-color: blueviolet;
+    cursor: pointer;
+    border: none;
+    width: 15%;
+    font-size: 15px;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+}
+#allItems{
+    width: 30%;
+    margin: auto;
+}
+#allItems div{
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+   justify-content: space-between;
+}
+#allItems div span{
+    font-size: 20px;
+}

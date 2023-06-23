@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation Using JS</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h3>DOM Manipulation using JavaScript</h3>
+      </nav>
+    </header>
+    <main>
+      <div class="inputSection">
+          <input
+            type="text"
+            id="inputText"
+            name="item"
+            oninput="getValue()"
+            placeholder="Add new item"
+          /><button onclick="addItem()">Add</button>
+      </div>
+      <div id="allItems"></div>
+    </main>
+    <script>
+      let allItems = JSON.parse(localStorage.getItem("items")) || [{title:"First", id:1},{title:"Second",id:2}];
+      const container = document.getElementById("allItems");
+      let newItem = {},
+        id = 2,
+        text = "";
+        renderItemsOnDOM(allItems);
+      function getValue(e) {
+        text = document.getElementById("inputText").value;
+      }
+      function addItem() {
+        newItem = {
+          title: text,
+          id: ++id,
+        };
+        allItems = [...allItems, newItem];
+        document.getElementById("inputText").value = "";
+        renderItemsOnDOM(allItems);
+      }
+      function renderItemsOnDOM(items) {
+        container.innerHTML = "";
+        items.map((item) => {
+          let div = document.createElement("div");
+          let span = document.createElement("span");
+          span.innerText = item.title;
+          let btn = document.createElement("button");
+          let remove = document.createTextNode("Remove");
+          btn.append(remove);
+          div.append(span, btn);
+          container.append(div);
+          btn.addEventListener("click", () => {
+            allItems = items.filter((el) => {
+              if (el.id != item.id) {
+                return el;
+              }
+            });
+            renderItemsOnDOM(allItems);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

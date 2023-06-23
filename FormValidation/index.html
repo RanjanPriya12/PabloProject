@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="formBox">
+      <div>
+        <h3>Form Validation Using JavaScript</h3>
+      </div>
+      <form class="loginForm">
+        <div class="loginField">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            name="uername"
+            id="userName"
+            placeholder="Your username..."
+            required
+            oninput="return validateName()"
+          />
+          <p id="nameError"></p>
+        </div>
+        <div class="loginField">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="userEmail"
+            placeholder="Your Email id..."
+            required
+            oninput="return validateEmail()"
+          />
+          <p id="emailError"></p>
+        </div>
+        <div class="loginField">
+          <label for="mobile">Ph. Number</label>
+          <input
+            type="text"
+            name="mobile"
+            id="mobileNumber"
+            placeholder="Mobile..."
+            required
+            oninput="return validateNumber()"
+          />
+          <p id="mobileError"></p>
+        </div>
+        <div class="loginField">
+          <label for="message">Message</label>
+          <input
+            type="text"
+            name="message"
+            id="message"
+            placeholder="Msg..."
+            required
+            oninput="return validateMessage()"
+          />
+          <p id="messageError"></p>
+        </div>
+        <div class="loginField">
+          <input type="button" value="Validation" onclick="return formValidation()"
+          />
+        </div>
+      </form>
+    </div>
+    <script>
+      function formValidation() {
+        let email = document.getElementById("userEmail").value;
+        if (email == "" || email == null) {
+          document.getElementById("emailError").innerText =
+            "Please Enter your email address.!";
+        }
+        let username = document.getElementById("userName").value;
+        if (username == null || username == "") {
+          document.getElementById("nameError").innerText="Username can't be blank!";
+        }
+        let phNumber = document.getElementById("mobileNumber").value;
+        if(phNumber=="" || phNumber==null){
+          document.getElementById("mobileError").innerText="Please Enter your phone number.!";
+        }
+        let message = document.getElementById("message").value;
+        if(message=="" || message==null){
+          document.getElementById("messageError").innerText="Message should not be blank.!";
+        }
+      }
+      function validateEmail() {
+        let regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+        let email = document.getElementById("userEmail").value;
+        if (email && !email.match(regEmail)) {
+          document.getElementById("emailError").innerText =
+            "Please Enter a valid email address.!";
+          return false;
+        } else {
+          document.getElementById("emailError").innerText = "";
+          return true;
+        }
+      }
+      function validateName() {
+        let regName = /^[a-zA-Z ]+$/; 
+        let username = document.getElementById("userName").value;
+        if(username && !username.match(regName)){
+          document.getElementById("nameError").innerText="Username should contain only alphabetic characters.!";
+          return false;
+        }
+        else if (username && username.length < 6) {
+          document.getElementById("nameError").innerText="Username must be at least 6 characters long.!";
+          return false;
+        }else{
+          document.getElementById("nameError").innerText="";
+          return true;
+        }
+      }
+      function validateNumber(){
+        let mobileRegex = "^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$";
+        let phNumber = document.getElementById("mobileNumber").value;
+        if(phNumber && !phNumber.match(mobileRegex)){
+          document.getElementById("mobileError").innerText="Invalid mobile number entered.!";
+          return false;
+        }else{
+          document.getElementById("mobileError").innerText="";
+          return true;
+        }
+      }
+      function validateMessage() {
+        let regMessage = /^[a-zA-Z]+$/; 
+        let message = document.getElementById("message").value;
+        if(message && !message.match(regMessage)){
+          document.getElementById("messageError").innerText="Message should contain only alphabetic strings.!";
+          return false;
+        }
+        else if (message && message.length < 25) {
+          document.getElementById("messageError").innerText="Message should be at least 25 characters long.!";
+          return false;
+        }else if (message && message.length > 50) {
+          document.getElementById("messageError").innerText="Message should not excced more than 50 characters.!";
+          return false;
+        }else{
+          document.getElementById("messageError").innerText="";
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>
