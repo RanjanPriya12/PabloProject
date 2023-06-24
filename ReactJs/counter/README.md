@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+8) JavaScript framework (react js)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+i) What is react js?
+---> React js is a javascript framework used to create user interface (UI). It fallows unidirectional flow and it supports
+client side rendering. It is component based UI framework which is reusable piece of code. It has virtual DOM which  make it
+easy to do DOM manipulation so fast. Perfomance is better than real DOM. It is declarative. It is designed by 'Facebook'.
+It uses ES6 version of javascript JSX to make the UI components.
 
-## Available Scripts
+I have designed counter to show that it updates only those nodes on UI which has been change with help of VDOM and deffing 
+algorithm.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+9) Performance Optimization
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+--->Performance optimization in React.js involves various techniques to enhance the speed and efficiency of React applications. 
 
-### `npm run build`
+i) Virtual DOM and Reconciliation:
+React uses a virtual DOM to efficiently update the actual DOM. One optimization technique is to minimize the number of updates through reconciliation. You can achieve this by using keys correctly and avoiding unnecessary re-rendering of components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ii) Memoization and Caching:
+Utilize memoization techniques like memoization libraries (e.g., memoize-one) or hooks like useMemo to cache expensive computations and prevent unnecessary recalculations.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+iii) Lazy Loading and Code Splitting:
+Lazy loading is a technique where you load components or modules only when they are needed. Use React.lazy and Suspense to lazily load components, reducing the initial bundle size and improving load times.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+iv) Component Rendering:
+Analyze your components and identify any unnecessary re-renders. Use shouldComponentUpdate (class components) or React.memo (functional components) to prevent re-rendering when props or state haven't changed.
 
-### `npm run eject`
+v) Code Splitting:
+Split your code into smaller chunks using dynamic imports or tools like Webpack's code splitting. This allows you to load only the required code when needed, reducing the initial load time and improving perceived performance.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+vi) Bundle Size Optimization:
+Minimize your bundle size by removing unnecessary dependencies, optimizing imports, and using tools like tree shaking, code minification, and compression techniques. This can significantly improve initial load times.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+vii) Optimized Images:
+Optimize image assets by compressing them without sacrificing visual quality. Consider using responsive images and lazy loading techniques to load images as needed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+10) Accessibility and Best SEO
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---> Accessibility and SEO are important considerations when building React applications.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Accessibility:
 
-### Making a Progressive Web App
+i) Semantic HTML: Use semantic HTML elements (e.g., <nav>, <header>, <main>, etc.) to provide a clear structure and meaning to your content. This helps screen readers and assistive technologies understand your app better.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+ii) ARIA Roles and Attributes: Utilize ARIA (Accessible Rich Internet Applications) roles and attributes to enhance the accessibility of interactive elements, custom components, and dynamic content.
 
-### Advanced Configuration
+iii) Keyboard Navigation: Ensure your app is fully navigable using the keyboard alone. Focus management, tab order, and keyboard event handling should be properly implemented for interactive elements.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+iv) Text Alternatives for Images: Provide meaningful alternative text (alt attribute) for images, allowing screen readers to describe the image to visually impaired users.
 
-### Deployment
+v) Form Accessibility: Make sure form inputs have appropriate labels and associate them correctly with their respective form elements. Use ARIA roles and attributes like aria-label or aria-labelledby where necessary.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+vi) Focus and Highlighting: Ensure that interactive elements receive focus states and are visually distinguishable when in focus. This helps users who rely on keyboard navigation or assistive technologies.
 
-### `npm run build` fails to minify
+vii) Testing with Assistive Technologies: Regularly test your application using screen readers and other assistive technologies to identify and address accessibility issues. Tools like aXe, VoiceOver (for iOS/macOS), or NVDA (for Windows) can assist in accessibility testing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+SEO (Search Engine Optimization):
+
+i) Server-side Rendering (SSR): Implement server-side rendering to provide search engines with fully rendered HTML content. This ensures that search engine crawlers can easily index your app's content.
+
+ii) Meta Tags: Use appropriate meta tags, including <title>, <meta description>, and <meta keywords>, to provide concise and relevant information about your app's pages. Each page should have unique meta tags.
+
+iii) URL Structure: Optimize your app's URL structure to include relevant keywords and descriptive slugs. Use React Router's BrowserRouter to implement clean URLs.
+
+iv) Internal Linking: Implement internal linking within your app to facilitate navigation and improve the discoverability of your content. Use anchor tags (<a>) with relevant anchor text.
+
+v) SEO-friendly Components: Ensure that key components of your app, such as headers, navigation menus, and content sections, are appropriately marked up using HTML elements and semantic tags.
+
+vi) External Links: Include external links to reputable and relevant websites in your content. This can improve your site's credibility and search engine rankings.
+
+vii) Performance Optimization: Follow performance optimization techniques mentioned earlier to improve your app's loading speed. Faster-loading websites tend to have better SEO rankings.
